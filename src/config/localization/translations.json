@@ -1187,7 +1187,6 @@
   "Rarity": "Rarity",
   "Lowest": "Lowest",
   "You don’t have any of this item.": "You don’t have any of this item.",
-  "You don’t have this item.": "You don’t have this item.",
   "Manage/Sell": "Manage/Sell",
   "NFT Marketplace": "NFT Marketplace",
   "Delisted": "Delisted",
@@ -1699,5 +1698,7 @@
   "Your Mines of Dalarnia - Bunny Helmet NFT will be airdropped to your wallet before 00:00 UTC on 2nd June.": "Your Mines of Dalarnia - Bunny Helmet NFT will be airdropped to your wallet before 00:00 UTC on 2nd June.",
   "Bunny Helmet NFT": "Bunny Helmet NFT",
   "Bunny Helmet": "Bunny Helmet",
-  "PancakeSwap NFT": "PancakeSwap NFT"
+  "PancakeSwap NFT": "PancakeSwap NFT",
+  "Suspicious rugpull token": "Suspicious rugpull token",
+  "Manage Yours in Collection": "Manage Yours in Collection"
 }

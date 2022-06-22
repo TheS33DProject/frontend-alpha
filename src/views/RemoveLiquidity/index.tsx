@@ -16,7 +16,6 @@ import {
   Box,
   Flex,
   useModal,
-  Skeleton,
   TooltipText,
   useTooltip,
 } from '@pancakeswap/uikit'
@@ -24,6 +23,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { useTranslation } from 'contexts/Localization'
 import { CHAIN_ID } from 'config/constants/networks'
 import { useLPApr } from 'state/swap/hooks'
+import { ROUTER_ADDRESS } from 'config/constants/exchange'
 import { AutoColumn, ColumnCenter } from '../../components/Layout/Column'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import { MinimalPositionCard } from '../../components/PositionCard'
@@ -33,7 +33,6 @@ import ConnectWalletButton from '../../components/ConnectWalletButton'
 import { LightGreyCard } from '../../components/Card'
 
 import { CurrencyLogo } from '../../components/Logo'
-import { ROUTER_ADDRESS } from '../../config/constants'
 import useActiveWeb3React from '../../hooks/useActiveWeb3React'
 import { useCurrency } from '../../hooks/Tokens'
 import { usePairContract } from '../../hooks/useContract'
@@ -41,7 +40,8 @@ import useTransactionDeadline from '../../hooks/useTransactionDeadline'
 
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import StyledInternalLink from '../../components/Links'
-import { calculateGasMargin, calculateSlippageAmount, getRouterContract } from '../../utils'
+import { calculateGasMargin } from '../../utils'
+import { getRouterContract, calculateSlippageAmount } from '../../utils/exchange'
 import { currencyId } from '../../utils/currencyId'
 import useDebouncedChangeHandler from '../../hooks/useDebouncedChangeHandler'
 import { wrappedCurrency } from '../../utils/wrappedCurrency'
@@ -617,19 +617,17 @@ export default function RemoveLiquidity() {
               </LightGreyCard>
             </AutoColumn>
           )}
-          <RowBetween mt="16px">
-            <TooltipText ref={targetRef} bold fontSize="12px" color="secondary">
-              {t('LP reward APR')}
-            </TooltipText>
-            {tooltipVisible && tooltip}
-            {poolData ? (
+          {poolData && (
+            <RowBetween mt="16px">
+              <TooltipText ref={targetRef} bold fontSize="12px" color="secondary">
+                {t('LP reward APR')}
+              </TooltipText>
+              {tooltipVisible && tooltip}
               <Text bold color="primary">
                 {formatAmount(poolData.lpApr7d)}%
               </Text>
-            ) : (
-              <Skeleton width={60} />
-            )}
-          </RowBetween>
+            </RowBetween>
+          )}
           <Box position="relative" mt="16px">
             {!account ? (
               <ConnectWalletButton />
