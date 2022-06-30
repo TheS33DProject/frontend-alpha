@@ -1,14 +1,20 @@
-# Contributing to the Pancake ecosystem 🥞
+# Contributing to the S33D ecosystem 🌱
 
 Thanks for taking the time to contribute !
-You can start by reading our [Contribution guidelines](https://docs.pancakeswap.finance/code/contributing) first.
+You can start by reading our [Contribution guidelines](https://docs.s33d.app/code/contributing) first.
 
 ## Setup
 
-Install the dependencies
-
+1. Clone this repository. 
+```shell
+git clone https://github.com/TheS33DProject/s33d-app.git
+```
+2. Install the dependencies.
 ```shell
 yarn
+```
+3. Run the developer instance
+```shell
 yarn dev
 ```
 
@@ -28,6 +34,10 @@ Don't forget to setup your IDE with `eslint` and `prettier`.
 ## Tests
 
 Run tests with `yarn test`.
+
+## Commits & Code Updates
+
+All commits must follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 ## Issue reports
 
