@@ -24,7 +24,7 @@ const StyledLink = styled("a")`
     }
   }
   .desktop-icon {
-    width: 160px;
+    width: 100px;
     display: none;
     ${({ theme }) => theme.mediaQueries.nav} {
       display: block;
@@ -48,7 +48,7 @@ const Logo: React.FC<Props> = ({ isDark, href }) => {
   const isAbsoluteUrl = href.startsWith("http");
   const innerLogo = (
     <>
-      <LogoIcon className="mobile-icon" />
+      <LogoIcon className="mobile-icon" isDark={isDark} />
       <LogoWithTextIcon className="desktop-icon" isDark={isDark} />
     </>
   );

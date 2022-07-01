@@ -33,23 +33,23 @@ export const StyledIconMobileContainer = styled(Box)`
 `;
 
 export const StyledToolsContainer = styled(Flex)`
-  border-color: ${darkColors.cardBorder};
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-style: solid;
-  padding: 24px 0;
-  margin-bottom: 24px;
+  // border-color: ${darkColors.cardBorder};
+  // border-top-width: 1px;
+  // border-bottom-width: 1px;
+  // border-style: solid;
+  padding: 24px;
+  // margin-bottom: 24px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     border-top-width: 0;
     border-bottom-width: 0;
-    padding: 0 0;
+    padding: 24px;
     margin-bottom: 0;
   }
 `;
 
 export const StyledSocialLinks = styled(SocialLinks)`
-  border-bottom: 1px solid ${darkColors.cardBorder};
+  // border-bottom: 1px solid ${darkColors.cardBorder};
 `;
 
 export const StyledText = styled.span`

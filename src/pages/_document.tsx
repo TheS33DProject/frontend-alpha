@@ -42,6 +42,10 @@ class MyDocument extends Document {
           )}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&amp;display=swap" rel="stylesheet" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500&family=Manrope:wght@300;400;600&family=Nunito:wght@100;300;400;500;600&display=swap"
+            rel="stylesheet"
+          />
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" href="/logo.png" />
           <link rel="manifest" href="/manifest.json" />

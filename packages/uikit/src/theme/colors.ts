@@ -2,12 +2,12 @@ import { Colors } from "./types";
 
 export const baseColors = {
   failure: "#ED4B9E",
-  primary: "#1FC7D4",
-  primaryBright: "#53DEE9",
-  primaryDark: "#0098A1",
-  secondary: "#7645D9",
-  success: "#31D0AA",
-  warning: "#FFB237",
+  primary: "#41A65B",
+  primaryBright: "#7BCC8F",
+  primaryDark: "#338448",
+  secondary: "#503811",
+  success: "#0267C1",
+  warning: "#EFA00B",
 };
 
 export const additionalColors = {
@@ -21,11 +21,11 @@ export const additionalColors = {
 export const lightColors: Colors = {
   ...baseColors,
   ...additionalColors,
-  background: "#FAF9FA",
+  background: "#FFFCF1",
   backgroundDisabled: "#E9EAEB",
   backgroundAlt: "#FFFFFF",
   backgroundAlt2: "rgba(255, 255, 255, 0.7)",
-  cardBorder: "#E7E3EB",
+  cardBorder: "#ffe0b5",
   contrast: "#191326",
   dropdown: "#F6F6F6",
   dropdownDeep: "#EEEEEE",
@@ -33,9 +33,9 @@ export const lightColors: Colors = {
   input: "#eeeaf4",
   inputSecondary: "#d7caec",
   tertiary: "#EFF4F5",
-  text: "#280D5F",
+  text: "#002C00",
   textDisabled: "#BDC2C4",
-  textSubtle: "#7A6EAA",
+  textSubtle: "#002c00",
   disabled: "#E9EAEB",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #E5FDFF 0%, #F3EFFF 100%)",
@@ -51,10 +51,10 @@ export const lightColors: Colors = {
 export const darkColors: Colors = {
   ...baseColors,
   ...additionalColors,
-  secondary: "#9A6AFF",
+  secondary: "#4fba6a",
   background: "#08060B",
   backgroundDisabled: "#3c3742",
-  backgroundAlt: "#27262c",
+  backgroundAlt: "#202205",
   backgroundAlt2: "rgba(39, 38, 44, 0.7)",
   cardBorder: "#383241",
   contrast: "#FFFFFF",
@@ -65,9 +65,9 @@ export const darkColors: Colors = {
   inputSecondary: "#262130",
   primaryDark: "#0098A1",
   tertiary: "#353547",
-  text: "#F4EEFF",
+  text: "#FFF8DD",
   textDisabled: "#666171",
-  textSubtle: "#B8ADD2",
+  textSubtle: "#FFF8DD",
   disabled: "#524B63",
   gradients: {
     bubblegum: "linear-gradient(139.73deg, #313D5C 0%, #3D2A54 100%)",

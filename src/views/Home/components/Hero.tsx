@@ -6,7 +6,7 @@ import { useTranslation } from 'contexts/Localization'
 import useTheme from 'hooks/useTheme'
 import Image from 'next/image'
 import styled, { keyframes } from 'styled-components'
-import bunnyImage from '../../../../public/images/home/lunar-bunny/bunny@2x.png'
+import s33dnaut from '../../../../public/images/home/lunar-bunny/naut@2x.png'
 import CompositeImage, { CompositeImageProps } from './CompositeImage'
 import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
 
@@ -15,7 +15,7 @@ const flyingAnim = () => keyframes`
     transform: translate(0,  0px);
   }
   50% {
-    transform: translate(-5px, -5px);
+    transform: translate(0, -20px);
   }
   to {
     transform: translate(0, 0px);
@@ -104,15 +104,17 @@ const Hero = () => {
         flexDirection={['column-reverse', null, null, 'row']}
         alignItems={['flex-end', null, null, 'center']}
         justifyContent="center"
-        mt={[account ? '280px' : '50px', null, 0]}
+        // mt={[account ? '280px' : '50px', null, 0]}
         id="homepage-hero"
       >
         <Flex flex="1" flexDirection="column">
           <Heading scale="xxl" color="secondary" mb="24px">
-            {t('The moon is made of pancakes.')}
+            {t('The S33D Project')}
           </Heading>
           <Heading scale="md" mb="24px">
-            {t('Trade, earn, and win crypto on the most popular decentralized platform in the galaxy.')}
+            {t(
+              'This is a 100% community owned sustainability initiative.  Together, we’re reimagining how we use our resources to conserve our planet for generations to come.',
+            )}
           </Heading>
           <Flex>
             {!account && <ConnectWalletButton mr="8px" />}
@@ -129,7 +131,7 @@ const Hero = () => {
           position="relative"
         >
           <BunnyWrapper>
-            <Image src={bunnyImage} priority placeholder="blur" alt={t('Lunar bunny')} />
+            <Image src={s33dnaut} priority placeholder="blur" alt={t('Lunar bunny')} />
           </BunnyWrapper>
           <StarsWrapper>
             <CompositeImage {...starsImage} />
