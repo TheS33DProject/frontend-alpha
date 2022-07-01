@@ -109,7 +109,7 @@ const Hero = () => {
       >
         <Flex flex="1" flexDirection="column">
           <Heading scale="xxl" color="secondary" mb="24px">
-            {t('The S33D Project')}
+            <div className="s33dfont">{t('The S33D Project')}</div>
           </Heading>
           <Heading scale="md" mb="24px">
             {t(
@@ -119,7 +119,7 @@ const Hero = () => {
           <Flex>
             {!account && <ConnectWalletButton mr="8px" />}
             <NextLinkFromReactRouter to="/swap">
-              <Button variant={!account ? 'secondary' : 'primary'}>{t('Trade Now')}</Button>
+              <Button variant={!account ? 'secondary' : 'primary'}>{t('Buy S33D')}</Button>
             </NextLinkFromReactRouter>
           </Flex>
         </Flex>
@@ -131,7 +131,7 @@ const Hero = () => {
           position="relative"
         >
           <BunnyWrapper>
-            <Image src={s33dnaut} priority placeholder="blur" alt={t('Lunar bunny')} />
+            <Image src={s33dnaut} priority placeholder="blur" alt={t('S33dnaut')} />
           </BunnyWrapper>
           <StarsWrapper>
             <CompositeImage {...starsImage} />
