@@ -43,7 +43,7 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&amp;display=swap" rel="stylesheet" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500&family=Manrope:wght@300;400;600&family=Nunito:wght@100;300;400;500;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&amp;family=Manrope:wght@300;400;600&amp;display=swap"
             rel="stylesheet"
           />
           <link rel="shortcut icon" href="/favicon.ico" />
@@ -51,14 +51,14 @@ class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
-          <noscript>
+          {/* <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTAG}`}
               height="0"
               width="0"
               style={{ display: 'none', visibility: 'hidden' }}
             />
-          </noscript>
+          </noscript> */}
           <Main />
           <NextScript />
           <div id="portal-root" />

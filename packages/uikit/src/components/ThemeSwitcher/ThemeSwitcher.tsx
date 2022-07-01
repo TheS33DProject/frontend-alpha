@@ -10,8 +10,8 @@ export interface Props {
 const ThemeSwitcher: React.FC<Props> = ({ isDark, toggleTheme }) => (
   <Toggle
     checked={isDark}
-    defaultColor="textDisabled"
-    checkedColor="textDisabled"
+    defaultColor="primary"
+    checkedColor="primary"
     onChange={() => toggleTheme(!isDark)}
     scale="md"
     startIcon={(isActive = false) => <SunIcon color={isActive ? "warning" : "backgroundAlt"} />}

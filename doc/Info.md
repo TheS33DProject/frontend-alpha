@@ -1,6 +1,10 @@
 # Documentation: Info
 
-A brief overview how Info part of PancakeSwap website works.
+A brief overview how Info part of S33D App works.
+
+## Design Styling & App Interface
+
+The UI for S33D App is based off [PancakeSwap UIkit](https://github.com/pancakeswap/pancake-uikit). To retain maximum compatibility with updates and features built by the PancakeSwap team, the team at S33D has made local changes to the packages folder for S33D App UI.
 
 ## Code structure
 

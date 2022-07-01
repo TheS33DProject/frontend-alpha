@@ -8,7 +8,7 @@ declare module 'styled-components' {
 
 const GlobalStyle = createGlobalStyle`
   * {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Manrope', sans-serif;
   }
   body {
     background-color: ${({ theme }) => theme.colors.background};
@@ -17,6 +17,9 @@ const GlobalStyle = createGlobalStyle`
       height: auto;
       max-width: 100%;
     }
+  }
+  .s33dfont {
+    font-family: 'Fredoka', sans-serif;
   }
 `
 

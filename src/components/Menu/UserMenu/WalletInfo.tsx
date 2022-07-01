@@ -49,12 +49,23 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
           <Text>{formatBigNumber(balance, 6)}</Text>
         )}
       </Flex>
-      <Flex alignItems="center" justifyContent="space-between" mb="24px">
+      <Flex alignItems="center" justifyContent="space-between">
         <Text color="textSubtle">{t('CAKE Balance')}</Text>
         {cakeFetchStatus !== FetchStatus.Fetched ? (
           <Skeleton height="22px" width="60px" />
         ) : (
           <Text>{getFullDisplayBalance(cakeBalance, 18, 3)}</Text>
+        )}
+      </Flex>
+      <Flex alignItems="center" justifyContent="space-between" mb="24px">
+        <Text color="textSubtle">{t('S33D Balance')}</Text>
+        {cakeFetchStatus !== FetchStatus.Fetched ? (
+          <Skeleton height="22px" width="60px" />
+        ) : (
+          <Text>
+            <p>S33D amount</p>
+            {/* {getFullDisplayBalance(cakeBalance, 18, 3)} */}
+          </Text>
         )}
       </Flex>
       <Flex alignItems="center" justifyContent="end" mb="24px">
