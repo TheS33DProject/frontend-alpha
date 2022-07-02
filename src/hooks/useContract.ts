@@ -3,6 +3,8 @@ import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import {
   getBep20Contract,
   getCakeContract,
+  getS33DSContract,
+  getInitialS33DRoundContract,
   getBunnyFactoryContract,
   getBunnySpecialContract,
   getPancakeBunniesContract,
@@ -37,7 +39,17 @@ import {
   getGalaxyNTFClaimingContract,
 } from 'utils/contractHelpers'
 import { getMulticallAddress } from 'utils/addressHelpers'
-import { Erc20, Erc20Bytes32, Multicall, Weth, Cake, Erc721collection, CakeVaultV2 } from 'config/abi/types'
+import {
+  Erc20,
+  Erc20Bytes32,
+  Multicall,
+  Weth,
+  Cake,
+  S33DS,
+  Erc721collection,
+  CakeVaultV2,
+  InitialS33DRound,
+} from 'config/abi/types'
 
 // Imports below migrated from Exchange useContract.ts
 import { Contract } from '@ethersproject/contracts'
@@ -92,6 +104,29 @@ export const useCake = (): { reader: Cake; signer: Cake } => {
     () => ({
       reader: getCakeContract(null),
       signer: getCakeContract(getProviderOrSigner(library, account)),
+    }),
+    [account, library],
+  )
+}
+
+export const useS33DS = (): { reader: S33DS; signer: S33DS } => {
+  const { account, library } = useActiveWeb3React()
+  return useMemo(
+    () => ({
+      reader: getS33DSContract(null),
+      signer: getS33DSContract(getProviderOrSigner(library, account)),
+    }),
+    [account, library],
+  )
+}
+
+export const useInitialS33DRound = (): { reader: InitialS33DRound; signer: InitialS33DRound } => {
+  const { account, library } = useActiveWeb3React()
+  console.log('useInitialS33DRound:', getProviderOrSigner(library, account))
+  return useMemo(
+    () => ({
+      reader: getInitialS33DRoundContract(null),
+      signer: getInitialS33DRoundContract(getProviderOrSigner(library, account)),
     }),
     [account, library],
   )

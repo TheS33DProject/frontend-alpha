@@ -9,6 +9,7 @@ import tokens from 'config/constants/tokens'
 // Addresses
 import {
   getAddress,
+  getInitialS33DRoundAddress,
   getPancakeProfileAddress,
   getPancakeBunniesAddress,
   getBunnyFactoryAddress,
@@ -46,6 +47,8 @@ import bep20Abi from 'config/abi/erc20.json'
 import erc721Abi from 'config/abi/erc721.json'
 import lpTokenAbi from 'config/abi/lpToken.json'
 import cakeAbi from 'config/abi/cake.json'
+import s33dsAbi from 'config/abi/S33DS.json'
+import initialS33DRoundAbi from 'config/abi/initialS33DRound.json'
 import ifoV1Abi from 'config/abi/ifoV1.json'
 import ifoV2Abi from 'config/abi/ifoV2.json'
 import pointCenterIfo from 'config/abi/pointCenterIfo.json'
@@ -88,6 +91,8 @@ import type {
   Erc20,
   Erc721,
   Cake,
+  S33DS,
+  InitialS33DRound,
   BunnyFactory,
   PancakeBunnies,
   PancakeProfile,
@@ -119,6 +124,10 @@ import type {
 
 export const getContract = (abi: any, address: string, signer?: Signer | Provider) => {
   const signerOrProvider = signer ?? simpleRpcProvider
+  console.log('getContract abi:', abi)
+  console.log('getContract address:', address)
+  console.log('getContract signer:', signer)
+  console.log('getContract:', signerOrProvider)
   return new Contract(address, abi, signerOrProvider)
 }
 
@@ -152,6 +161,12 @@ export const getPointCenterIfoContract = (signer?: Signer | Provider) => {
 }
 export const getCakeContract = (signer?: Signer | Provider) => {
   return getContract(cakeAbi, tokens.cake.address, signer) as Cake
+}
+export const getS33DSContract = (signer?: Signer | Provider) => {
+  return getContract(s33dsAbi, tokens.s33d.address, signer) as S33DS
+}
+export const getInitialS33DRoundContract = (signer?: Signer | Provider) => {
+  return getContract(initialS33DRoundAbi, getInitialS33DRoundAddress(), signer) as InitialS33DRound
 }
 export const getProfileContract = (signer?: Signer | Provider) => {
   return getContract(profileABI, getPancakeProfileAddress(), signer) as PancakeProfile

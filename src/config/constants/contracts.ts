@@ -1,4 +1,8 @@
 export default {
+  initialS33DRound: {
+    56: '0x5fC8BAAddfba577097540365329f8E4C3cF7184e',
+    97: '0x8F3Aa747700B35B63E6005f3fA9FfA74439933B6',
+  },
   masterChef: {
     97: '',
     56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',

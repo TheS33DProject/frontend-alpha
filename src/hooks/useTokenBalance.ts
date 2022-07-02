@@ -7,7 +7,7 @@ import { Zero } from '@ethersproject/constants'
 import useSWR from 'swr'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { simpleRpcProvider } from 'utils/providers'
-import { useCake, useTokenContract } from './useContract'
+import { useCake, useS33DS, useTokenContract } from './useContract'
 import { useSWRContract } from './useSWRContract'
 
 const useTokenBalance = (tokenAddress: string) => {
@@ -43,6 +43,14 @@ export const useTotalSupply = () => {
   return data ? new BigNumber(data.toString()) : null
 }
 
+export const useTotalS33DSupply = () => {
+  const { reader: s33dsContract } = useS33DS()
+  const { data } = useSWRContract([s33dsContract, 'totalSupply'], {
+    refreshInterval: SLOW_INTERVAL,
+  })
+  return data ? new BigNumber(data.toString()) : null
+}
+
 export const useBurnedBalance = (tokenAddress: string) => {
   const contract = useTokenContract(tokenAddress, false)
   const { data } = useSWRContract([contract, 'balanceOf', ['0x000000000000000000000000000000000000dEaD']], {
@@ -63,6 +71,13 @@ export const useGetBnbBalance = () => {
 
 export const useGetCakeBalance = () => {
   const { balance, fetchStatus } = useTokenBalance(tokens.cake.address)
+
+  // TODO: Remove ethers conversion once useTokenBalance is converted to ethers.BigNumber
+  return { balance: EthersBigNumber.from(balance.toString()), fetchStatus }
+}
+
+export const useGetS33DBalance = () => {
+  const { balance, fetchStatus } = useTokenBalance(tokens.s33d.address)
 
   // TODO: Remove ethers conversion once useTokenBalance is converted to ethers.BigNumber
   return { balance: EthersBigNumber.from(balance.toString()), fetchStatus }

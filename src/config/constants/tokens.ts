@@ -30,6 +30,7 @@ export const mainnetTokens = defineTokens({
     'PancakeSwap Token',
     'https://pancakeswap.finance/',
   ),
+  s33d: new Token(MAINNET, '0xB9d2F259Da6Fe1178Cbf68809F4d3C8409B76ef0', 18, 'S33D', 'A S33D', 'https://s33d.app/'),
   gmi: new Token(MAINNET, '0x93D8d25E3C9A847a5Da79F79ecaC89461FEcA846', 18, 'GMI', 'Gamifi', 'https://gamifi.gg/'),
   tlos: new Token(MAINNET, '0xb6C53431608E626AC81a9776ac3e999c5556717c', 18, 'TLOS', 'Telos', 'https://www.telos.net/'),
   beta: new Token(
@@ -2131,6 +2132,7 @@ export const testnetTokens = defineTokens({
     'PancakeSwap Token',
     'https://pancakeswap.finance/',
   ),
+  s33d: new Token(TESTNET, '0xC27D7335533e4bf3005dF1378fCa283a853b292f', 18, 'S33D', 'A S33D', 'https://s33d.app/'),
   busd: new Token(
     TESTNET,
     '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',
