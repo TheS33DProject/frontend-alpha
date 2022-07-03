@@ -33,16 +33,12 @@ export const StyledIconMobileContainer = styled(Box)`
 
 export const StyledToolsContainer = styled(Flex)`
   border-color: ${({ theme }) => theme.colors.cardBorder};
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-style: solid;
-  padding: 24px 0;
-  margin-bottom: 24px;
+  padding: 20px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     border-top-width: 0;
     border-bottom-width: 0;
-    padding: 24px;
+    padding: 20px;
     margin-bottom: 0;
   }
 `;
