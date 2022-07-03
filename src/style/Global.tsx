@@ -10,6 +10,9 @@ const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Manrope', sans-serif;
   }
+  h1 {
+    font-family: 'Fredoka', sans-serif;
+  }
   body {
     background-color: ${({ theme }) => theme.colors.background};
 
