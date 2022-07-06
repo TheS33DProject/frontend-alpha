@@ -3,22 +3,22 @@ import { NextLinkFromReactRouter as RouterLink } from 'components/NextLink'
 import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
 
-interface SalesSectionButton {
+interface IntroSectionButton {
   to: string
   text: string
   external: boolean
 }
 
-export interface SalesSectionProps {
+export interface IntroSectionProps {
   headingText: string
   bodyText: string
   reverse: boolean
-  primaryButton: SalesSectionButton
-  secondaryButton: SalesSectionButton
+  primaryButton: IntroSectionButton
+  secondaryButton: IntroSectionButton
   images: CompositeImageProps
 }
 
-const SalesSection: React.FC<SalesSectionProps> = (props) => {
+const IntroSection: React.FC<IntroSectionProps> = (props) => {
   const { headingText, bodyText, reverse, primaryButton, secondaryButton, images } = props
 
   return (
@@ -77,4 +77,4 @@ const SalesSection: React.FC<SalesSectionProps> = (props) => {
   )
 }
 
-export default SalesSection
+export default IntroSection

@@ -5,7 +5,6 @@ import { FetchStatus } from 'config/constants/types'
 import { useTranslation } from 'contexts/Localization'
 import useAuth from 'hooks/useAuth'
 import useTokenBalance, { useGetBnbBalance } from 'hooks/useTokenBalance'
-
 import { getBscScanLink } from 'utils'
 import { formatBigNumber, getFullDisplayBalance } from 'utils/formatBalance'
 import CopyAddress from './CopyAddress'
@@ -20,8 +19,8 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
   const { account } = useWeb3React()
   const { balance, fetchStatus } = useGetBnbBalance()
   const { balance: cakeBalance, fetchStatus: cakeFetchStatus } = useTokenBalance(tokens.cake.address)
+  const { balance: s33dBalance, fetchStatus: s33dFetchStatus } = useTokenBalance(tokens.s33d.address)
   const { logout } = useAuth()
-
   const handleLogout = () => {
     onDismiss?.()
     logout()
@@ -59,13 +58,10 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
       </Flex>
       <Flex alignItems="center" justifyContent="space-between" mb="24px">
         <Text color="textSubtle">{t('S33D Balance')}</Text>
-        {cakeFetchStatus !== FetchStatus.Fetched ? (
+        {s33dFetchStatus !== FetchStatus.Fetched ? (
           <Skeleton height="22px" width="60px" />
         ) : (
-          <Text>
-            <p>S33D amount</p>
-            {/* {getFullDisplayBalance(cakeBalance, 18, 3)} */}
-          </Text>
+          <Text>{getFullDisplayBalance(s33dBalance, 18, 3)}</Text>
         )}
       </Flex>
       <Flex alignItems="center" justifyContent="end" mb="24px">

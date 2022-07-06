@@ -118,7 +118,7 @@ const Hero = () => {
           </Heading>
           <Flex>
             {!account && <ConnectWalletButton mr="8px" />}
-            <NextLinkFromReactRouter to="/swap">
+            <NextLinkFromReactRouter to="/buy-s33d">
               <Button variant={!account ? 'secondary' : 'primary'}>{t('Buy S33D')}</Button>
             </NextLinkFromReactRouter>
           </Flex>

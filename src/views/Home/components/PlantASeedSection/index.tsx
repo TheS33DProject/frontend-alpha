@@ -36,28 +36,23 @@ const Stats = () => {
   return (
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
       <GradientLogo height="48px" width="48px" mb="24px" />
-      <Heading textAlign="center" scale="xl">
-        {t('Used by millions.')}
+      <Heading textAlign="center" scale="xl" as="h1">
+        {t('Plant A S33D')}
       </Heading>
-      <Heading textAlign="center" scale="xl" mb="32px">
-        {t('Trusted with billions.')}
+      <Heading textAlign="center" scale="lg" mb="32px">
+        {t('All life happens with planting a seed.')}
       </Heading>
-      <Text textAlign="center" color="textSubtle">
-        {t('PancakeSwap has the most users of any decentralized platform, ever.')}
+      <Text textAlign="center" color="textSubtle" mb="24px">
+        {t(
+          'Our vision is straightforward. Help locals establish their farm, and get a portion of the food output in return. Boost conservation initiatives that you care about and enjoy privileges at local attractions.',
+        )}
       </Text>
-      <Flex flexWrap="wrap">
-        <Text display="inline" textAlign="center" color="textSubtle" mb="20px">
-          {entrusting}
-          <>{tvl ? <>{tvlString}</> : <Skeleton display="inline-block" height={16} width={70} mt="2px" />}</>
-          {inFunds}
-        </Text>
-      </Flex>
 
       <Text textAlign="center" color="textSubtle" bold mb="32px">
-        {t('Will you join them?')}
+        {t('Will you support them?')}
       </Text>
 
-      <Flex flexDirection={['column', null, null, 'row']}>
+      {/* <Flex flexDirection={['column', null, null, 'row']}>
         <IconCard {...UsersCardData} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
           <StatCardContent
             headingText={t('%users% users', { users })}
@@ -79,7 +74,7 @@ const Stats = () => {
             highlightColor={theme.colors.failure}
           />
         </IconCard>
-      </Flex>
+      </Flex> */}
     </Flex>
   )
 }
