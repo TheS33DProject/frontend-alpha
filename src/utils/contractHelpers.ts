@@ -124,10 +124,6 @@ import type {
 
 export const getContract = (abi: any, address: string, signer?: Signer | Provider) => {
   const signerOrProvider = signer ?? simpleRpcProvider
-  console.log('getContract abi:', abi)
-  console.log('getContract address:', address)
-  console.log('getContract signer:', signer)
-  console.log('getContract:', signerOrProvider)
   return new Contract(address, abi, signerOrProvider)
 }
 

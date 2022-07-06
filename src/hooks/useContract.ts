@@ -120,16 +120,11 @@ export const useS33DS = (): { reader: S33DS; signer: S33DS } => {
   )
 }
 
-export const useInitialS33DRound = (): { reader: InitialS33DRound; signer: InitialS33DRound } => {
+export const useInitialS33DRound = () => {
   const { account, library } = useActiveWeb3React()
-  console.log('useInitialS33DRound:', getProviderOrSigner(library, account))
-  return useMemo(
-    () => ({
-      reader: getInitialS33DRoundContract(null),
-      signer: getInitialS33DRoundContract(getProviderOrSigner(library, account)),
-    }),
-    [account, library],
-  )
+  return useMemo(() => {
+    return getInitialS33DRoundContract(getProviderOrSigner(library, account))
+  }, [account, library])
 }
 
 export const useBunnyFactory = () => {
