@@ -76,3 +76,16 @@ export interface FarmAuctionContract extends Omit<FarmAuction, 'auctions'> {
   auctions: ContractFunction<AuctionsResponse>
   getWhitelistedAddresses: ContractFunction<GetWhitelistedAddressesResponse>
 }
+
+export interface S33DOfferInfos {
+  buyLimit: BigNumber
+  getPouchBalance: BigNumber
+  offerPrice: BigNumber
+}
+
+export interface S33DUserInfos {
+  contribution: BigNumber
+  getS33DBalance: BigNumber
+  getUSDTBalance: BigNumber
+  getWhitelist: BigNumber
+}

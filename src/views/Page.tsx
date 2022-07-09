@@ -10,8 +10,8 @@ const StyledPage = styled.div<{ $removePadding: boolean; $noMinHeight }>`
   align-items: center;
   width: 100%;
   padding: ${({ $removePadding }) => ($removePadding ? '0' : '16px')};
-  padding-bottom: 0;
-  min-height: ${({ $noMinHeight }) => ($noMinHeight ? 'initial' : 'calc(100vh - 64px)')};
+  padding-bottom: 16px;
+  min-height: ${({ $noMinHeight }) => ($noMinHeight ? 'initial' : 'calc(100vh - 128px)')};
   background: ${({ theme }) => theme.colors.gradients.bubblegum};
 
   ${({ theme }) => theme.mediaQueries.xs} {
@@ -25,8 +25,8 @@ const StyledPage = styled.div<{ $removePadding: boolean; $noMinHeight }>`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     padding: ${({ $removePadding }) => ($removePadding ? '0' : '32px')};
-    padding-bottom: 0;
-    min-height: ${({ $noMinHeight }) => ($noMinHeight ? 'initial' : 'calc(100vh - 100px)')};
+    padding-bottom: 32px;
+    min-height: ${({ $noMinHeight }) => ($noMinHeight ? 'initial' : 'calc(100vh - 130px)')};
   }
 `
 
@@ -40,7 +40,7 @@ const Page: React.FC<
 > = ({
   children,
   removePadding = false,
-  hideFooterOnDesktop = false,
+  hideFooterOnDesktop = true,
   noMinHeight = false,
   helpUrl = EXCHANGE_DOCS_URLS,
   ...props
@@ -51,7 +51,10 @@ const Page: React.FC<
       <StyledPage $removePadding={removePadding} $noMinHeight={noMinHeight} {...props}>
         {children}
         <Flex flexGrow={1} />
-        <Box display={['block', null, null, hideFooterOnDesktop ? 'none' : 'block']} width="100%">
+        <Box
+          display={[hideFooterOnDesktop ? 'none' : 'block', null, null, hideFooterOnDesktop ? 'none' : 'block']}
+          width="100%"
+        >
           <Footer helpUrl={helpUrl} />
         </Box>
       </StyledPage>

@@ -1,6 +1,6 @@
-import { NextLinkFromReactRouter } from 'components/NextLink'
 // import { useWeb3React } from '@web3-react/core'
-// import useTheme from 'hooks/useTheme'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import { PageMeta } from 'components/Layout/Page'
 import { Button, Flex, Heading, Text } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
@@ -9,14 +9,16 @@ import Image from './components/Image'
 import pageConfig from './components/config'
 
 const Disclaimer: React.FC = () => {
-  // const { theme } = useTheme()
   // const { account } = useWeb3React()
-
-  // const { isDark } = useTheme()
-
+  const router = useRouter()
   const { t } = useTranslation()
   const { headingText, bodyText, disclaimerIntro, disclaimerC1, disclaimerC2, disclaimerC3, primaryButton, images } =
     pageConfig(t)
+
+  const handleClick = () => {
+    router.push('/ido')
+  }
+
   return (
     <>
       <PageMeta />
@@ -39,7 +41,11 @@ const Disclaimer: React.FC = () => {
                 {disclaimerIntro}
               </Text>
               <Text color="textSubtle" mb="20px">
-                {disclaimerC1}
+                <Link href="https://docs.s33d.app/legal-notices/disclaimer">
+                  <a href="https://docs.s33d.app/legal-notices/disclaimer" target="_blank" rel="noreferrer">
+                    {disclaimerC1}
+                  </a>
+                </Link>
               </Text>
               <Text color="textSubtle" mb="20px">
                 {disclaimerC2}
@@ -48,13 +54,11 @@ const Disclaimer: React.FC = () => {
                 {disclaimerC3}
               </Text>
               <Flex>
-                <NextLinkFromReactRouter to={primaryButton.to}>
-                  <Button>
-                    <Text color="card" bold fontSize="16px">
-                      {t(primaryButton.text)}
-                    </Text>
-                  </Button>
-                </NextLinkFromReactRouter>
+                <Button onClick={handleClick}>
+                  <Text color="card" bold fontSize="16px">
+                    {t(primaryButton.text)}
+                  </Text>
+                </Button>
               </Flex>
             </StyledTextContainer>
           </BodyWrapper>
