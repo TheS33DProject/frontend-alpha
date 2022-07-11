@@ -1,6 +1,6 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
-import BunnyIcon from "../Svg/Icons/Logo";
+import styled, { keyframes, useTheme } from "styled-components";
+import S33DIcon from "../Svg/Icons/Logo";
 import { BunnyProps, FallingBunniesProps } from "./types";
 
 const bunnyFall = keyframes`
@@ -71,10 +71,11 @@ const FallingBunnies: React.FC<FallingBunniesProps> = ({
   iterations = Infinity,
   duration = 10,
 }) => {
+  const theme = useTheme();
   const bunnies = [...Array(count)].map((_, index) => (
     // eslint-disable-next-line react/no-array-index-key
     <Bunny key={String(index)} position={Math.random() * 100} iterations={iterations} duration={duration}>
-      <BunnyIcon width={size} height={size} />
+      <S33DIcon isDark={theme.isDark} width={size} height={size} />
     </Bunny>
   ));
 

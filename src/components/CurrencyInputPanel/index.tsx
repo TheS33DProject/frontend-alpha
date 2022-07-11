@@ -1,5 +1,5 @@
 import { Currency, Pair, Token } from '@pancakeswap/sdk'
-import { Button, ChevronDownIcon, Text, useModal, Flex, Box, MetamaskIcon } from '@pancakeswap/uikit'
+import { Button, ChevronDownIcon, Text, useModal, Flex, Box, MetamaskIcon, Progress } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 import { registerToken } from 'utils/wallet'
 import { isAddress } from 'utils'
@@ -59,6 +59,10 @@ interface CurrencyInputPanelProps {
   otherCurrency?: Currency | null
   id: string
   showCommonBases?: boolean
+  showProgress?: boolean
+  buyLimit?: number
+  whitelist?: number
+  contribution?: number
 }
 export default function CurrencyInputPanel({
   value,
@@ -71,9 +75,13 @@ export default function CurrencyInputPanel({
   disableCurrencySelect = false,
   hideBalance = false,
   pair = null, // used for double token logo
+  showProgress = false,
   otherCurrency,
   id,
   showCommonBases,
+  buyLimit = 0,
+  whitelist = 0,
+  contribution = 0,
 }: CurrencyInputPanelProps) {
   const { account, library } = useActiveWeb3React()
   const selectedCurrencyBalance = useCurrencyBalance(account ?? undefined, currency ?? undefined)
@@ -84,7 +92,6 @@ export default function CurrencyInputPanel({
 
   const token = pair ? pair.liquidityToken : currency instanceof Token ? currency : null
   const tokenAddress = token ? isAddress(token.address) : null
-
   const [onPresentCurrencyModal] = useModal(
     <CurrencySearchModal
       onCurrencySelect={onCurrencySelect}
@@ -165,6 +172,28 @@ export default function CurrencyInputPanel({
           </Text>
         )}
       </Flex>
+      {showProgress && (
+        <>
+          <Progress variant="round" scale="md" primaryStep={(contribution / buyLimit) * 100} />
+          <Flex mb="6px" alignItems="center" justifyContent="space-between">
+            <Text color="textSubtle" fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
+              Your buy limit
+            </Text>
+            <Flex>
+              <Flex alignItems="center" justifyContent="space-between">
+                <Text color="textSubtle" fontSize="14px" ml="6px">
+                  {contribution.toLocaleString(locale)} <b>/</b>
+                </Text>
+              </Flex>
+              <Flex alignItems="center" justifyContent="space-between">
+                <Text color="textSubtle" fontSize="14px" ml="6px">
+                  {buyLimit.toLocaleString(locale)} <b>S33D</b>
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+        </>
+      )}
       <InputPanel>
         <Container as="label">
           <LabelRow>
