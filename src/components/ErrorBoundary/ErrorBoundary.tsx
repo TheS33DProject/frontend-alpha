@@ -3,9 +3,11 @@ import Page from 'components/Layout/Page'
 import { useTranslation } from 'contexts/Localization'
 import { Button, Text, LogoIcon, Flex, IconButton, CopyIcon } from '@pancakeswap/uikit'
 import { copyText } from 'utils/copyText'
+import { useTheme } from 'styled-components'
 
 export default function ErrorBoundary({ children }) {
   const { t } = useTranslation()
+  const theme = useTheme()
   return (
     <Sentry.ErrorBoundary
       beforeCapture={(scope) => {
@@ -15,7 +17,7 @@ export default function ErrorBoundary({ children }) {
         return (
           <Page>
             <Flex flexDirection="column" justifyContent="center" alignItems="center">
-              <LogoIcon width="64px" mb="8px" />
+              <LogoIcon isDark={theme.isDark} width="64px" mb="8px" />
               <Text mb="16px">{t('Oops, something wrong.')}</Text>
               {eventId && (
                 <Flex flexDirection="column" style={{ textAlign: 'center' }} mb="8px">

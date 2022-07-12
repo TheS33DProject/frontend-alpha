@@ -13,7 +13,7 @@ const pageConfig = (t: ContextApi['t']) => {
     ),
     disclaimerC1: t('(I) read the Legal Notice and other information about this IDO'),
     disclaimerC2: t(
-      '(II) confirmed that you are not in a jurisdiction where buying, trading and/or owing S33D token would be prohibited or restricted in any manner.',
+      '(II) confirmed that you are not in a jurisdiction where buying, trading and/or owning S33D token would be prohibited or restricted in any manner.',
     ),
     disclaimerC3: t(
       '(III) understood that despite all precautions, there can still be exploit risks that exist within the app which may result in partial or total loss of funds.',

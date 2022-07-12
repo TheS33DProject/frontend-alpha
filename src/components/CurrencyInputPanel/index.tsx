@@ -174,7 +174,12 @@ export default function CurrencyInputPanel({
       </Flex>
       {showProgress && (
         <>
-          <Progress variant="round" scale="md" primaryStep={(contribution / buyLimit) * 100} />
+          <Progress
+            variant="round"
+            scale="md"
+            primaryStep={(contribution / buyLimit) * 100}
+            secondaryStep={(whitelist / buyLimit) * 100}
+          />
           <Flex mb="6px" alignItems="center" justifyContent="space-between">
             <Text color="textSubtle" fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
               Your buy limit

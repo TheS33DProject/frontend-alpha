@@ -51,7 +51,7 @@ const Step: React.FC<CountdownProps> = ({ stepText, index, activeStepIndex }) =>
   if (isActive) {
     return (
       <ActiveWrapper>
-        <LogoIcon />
+        <LogoIcon isDark={false} />
         <StyledText color="primaryBright">{stepText}</StyledText>
       </ActiveWrapper>
     )

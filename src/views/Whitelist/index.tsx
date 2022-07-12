@@ -144,12 +144,13 @@ const Whitelist: React.FC = () => {
         Router.push({ pathname: '/thank-you' })
       }
     } catch (error) {
+      const caught: any = error
       const now = Date.now()
       const randomToast = {
         id: `id-${now}`,
-        title: error.name,
+        title: caught.name,
         type: 'danger',
-        description: error.message,
+        description: caught.message,
       }
       setToasts((prevState) => [...prevState, randomToast])
     }

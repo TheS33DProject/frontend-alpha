@@ -28,7 +28,7 @@ const Timeline: React.FC<TimelineProps> = ({ events, useDark = true }) => {
           <TimelineEvent key={text} $useDark={useDark}>
             <Flex mr="10px" alignItems="center">
               {isUpcoming && <CircleOutlineIcon color={useDark ? "textDisabled" : lightColors.textDisabled} />}
-              {isLive && <LogoIcon />}
+              {isLive && <LogoIcon isDark={useDark} />}
               {isPast && <CheckmarkCircleFillIcon color={useDark ? "textSubtle" : lightColors.textSubtle} />}
             </Flex>
             <Text color={getTextColor({ eventStatus: status, useDark })} bold>
