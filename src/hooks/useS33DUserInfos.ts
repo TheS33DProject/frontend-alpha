@@ -28,16 +28,16 @@ const useS33DUserInfos = ({ account, library, setCallback }) => {
           // console.log("current contribution:", currentContribution)
           const contribution = await initialS33DRoundContract.contribution(account)
           // console.log("contribution:", contribution)
-          const s33dBalance = await initialS33DRoundContract.getS33DBalance()
+          // const s33dBalance = await initialS33DRoundContract.getS33DBalance()
           // console.log("s33dBalance:", s33dBalance)
-          const usdtBalance = await initialS33DRoundContract.getUSDTBalance()
+          // const usdtBalance = await initialS33DRoundContract.getUSDTBalance()
           // console.log("usdtBalance:", usdtBalance)
           const whitelist = await initialS33DRoundContract.getWhitelist()
           // console.log("whitelist:", whitelist)
           setCallback({
             contribution: BigNumber.from(contribution),
-            getS33DBalance: BigNumber.from(s33dBalance),
-            getUSDTBalance: BigNumber.from(usdtBalance),
+            // getS33DBalance: BigNumber.from(s33dBalance),
+            // getUSDTBalance: BigNumber.from(usdtBalance),
             getWhitelist: BigNumber.from(whitelist),
           })
         }

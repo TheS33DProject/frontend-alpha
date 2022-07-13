@@ -1,6 +1,9 @@
 import { Web3Provider } from '@ethersproject/providers'
 import IPancakeRouter02ABI from 'config/abi/IPancakeRouter02.json'
 import { IPancakeRouter02 } from 'config/abi/types/IPancakeRouter02'
+import InitialS33DRoundAbi from 'config/abi/initialS33DRound.json'
+import { InitialS33DRound } from 'config/abi/types/InitialS33DRound'
+import { getInitialS33DRoundAddress } from 'utils/addressHelpers'
 import { CHAIN_ID } from 'config/constants/networks'
 import { JSBI, Percent, CurrencyAmount, Trade, Fraction, TokenAmount } from '@pancakeswap/sdk'
 import {
@@ -38,6 +41,15 @@ export function getRouterContract(_: number, library: Web3Provider, account?: st
     IPancakeRouter02ABI,
     getProviderOrSigner(library, account),
   ) as IPancakeRouter02
+}
+
+// account is optional
+export function getInitialS33DRoundContract(_: number, library: Web3Provider, account?: string) {
+  return getContract(
+    getInitialS33DRoundAddress(),
+    InitialS33DRoundAbi,
+    getProviderOrSigner(library, account),
+  ) as InitialS33DRound
 }
 
 // computes price breakdown for the trade

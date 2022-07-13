@@ -6,6 +6,7 @@ import { useCallback, useMemo } from 'react'
 import { logError } from 'utils/sentry'
 import { useWeb3React } from '@web3-react/core'
 import { ROUTER_ADDRESS } from 'config/constants/exchange'
+import { getInitialS33DRoundAddress } from 'utils/addressHelpers'
 import useTokenAllowance from './useTokenAllowance'
 import { Field } from '../state/swap/actions'
 import { useTransactionAdder, useHasPendingApproval } from '../state/transactions/hooks'
@@ -130,6 +131,12 @@ export function useApproveCallbackFromTrade(trade?: Trade, allowedSlippage = 0) 
   )
 
   return useApproveCallback(amountToApprove, ROUTER_ADDRESS[CHAIN_ID])
+}
+
+// wraps useApproveCallback in the context of InitialS33DRound IDO
+export function useApproveCallbackFromInitialS33DRound(inputAmount) {
+  // console.log("useApproveCallbackFromInitialS33DRound - inputAmount:", inputAmount ?? '0')
+  return useApproveCallback(inputAmount, getInitialS33DRoundAddress())
 }
 
 // Wraps useApproveCallback in the context of a Gelato Limit Orders
